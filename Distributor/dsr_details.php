@@ -36,7 +36,7 @@ if (isset($_GET['serial'])) {
     <?php
               while($row = mysqli_fetch_assoc($result)) {
           ?>
-  <h1 class="text-white text-center mt-2 font-serif"><?php echo $row["name"] ?></h1>
+  <h1 class="text-white text-center mt-2 font-serif"><?php echo $row["Name"] ?></h1>
   <p class=" text-white text-center text-xl">Distributor sales Representative</p>
   <div class="text-center font-mono">
   <a href="" class=" mx-1">Call.</a>
@@ -45,24 +45,50 @@ if (isset($_GET['serial'])) {
   </div>
 
   <div style="display: grid;justify-content: center;">
-  <div class="mt-5 font-semibold mx-4 text-5xl">Products <button class=" rounded bg-slate-700 px-2 text-2xl mx-a pr-3 mx-52  text-white" id="popup-show">Edit</button></div>
-  <div class=" pt-2">
-  <p style="max-width: 100ch; word-wrap: break-word;" class="mx-4"><?php echo $row["products"] ?>                  
-  </p>
-    
+  <div class="mt-5 font-semibold mx-4 text-5xl">Details</div>
+  <div class="pt-2">
+    <table class="mx-4 border-collapse border">
+      <tr>
+        <td class="border p-2">Father's Name</td>
+        <td class="border p-2"><?php echo $row["Father_name"] ?></td>
+      </tr>
+      <tr>
+        <td class="border p-2">Mother's Name</td>
+        <td class="border p-2"><?php echo $row["Mother_name"] ?></td>
+      </tr>
+      <tr>
+        <td class="border p-2">Spouse's Name</td>
+        <td class="border p-2"><?php echo $row["Spouse_name"] ?></td>
+      </tr>
+      <tr>
+        <td class="border p-2">Present Address</td>
+        <td class="border p-2"><?php echo $row["Present_address"] ?></td>
+      </tr>
+      <tr>
+        <td class="border p-2">Permanent Address</td>
+        <td class="border p-2"><?php echo $row["Permanent_address"] ?></td>
+      </tr>
+      <tr>
+        <td class="border p-2">NID Number</td>
+        <td class="border p-2"><?php echo $row["NID_number"] ?></td>
+      </tr>
+      <tr>
+        <td class="border p-2">Phone Number</td>
+        <td class="border p-2"><?php echo $row["Phone_number"] ?></td>
+      </tr>
+      <tr>
+        <td class="border p-2">Local Guarantor Name</td>
+        <td class="border p-2"><?php echo $row["Local_guarantor_name"] ?></td>
+      </tr>
+      <tr>
+        <td class="border p-2">Local Guarantor Number</td>
+        <td class="border p-2"><?php echo $row["Local_guarantor_number"] ?></td>
+      </tr>
+    </table>
+  </div>
+</div>
 
-  </div>
-  <div class="mt-5 font-semibold mx-4 text-5xl">Locations <button class=" rounded bg-slate-700 px-2 text-2xl mx-a pr-3 mx-48  text-white">Edit</button></div>
-  <div class="pt-2">
-  <p style="max-width: 100ch; word-wrap: break-word;" class="mx-4"><?php echo $row["address"] ?>            
-  </p>
-  </div>
-  <div class="mt-5 font-semibold mx-4 text-5xl">Days <button class=" rounded bg-slate-700 px-2 text-2xl  pr-3 mx-[294px]  text-white">Edit</button></div>
-  <div class="pt-2">
-  <p style="max-width: 100ch; word-wrap: break-word;" class="mx-4"><?php echo $row["days"] ?>
-  </p>
-  <br><br>
-  </div>
+
   <?php
               }
           ?>
