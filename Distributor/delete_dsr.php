@@ -7,7 +7,8 @@ if (isset($_GET['serial'])) {
     $result = mysqli_query($connect, $sql);
 
     if ($result) {
-        header("Location: index.php");
+        header("Location: DSR.php");
+        exit(); // Ensure no further code execution after the redirection
     } else {
         echo "Error deleting record: " . mysqli_error($connect);
     }

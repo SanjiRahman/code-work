@@ -4,6 +4,33 @@ if (!isset($_SESSION['loggedin'])) {
     header("location: login.php");
 }
 require "partitions/_dbconnect.php";
+// Check if the table 'dsr' exists
+$table_check_sql = "SHOW TABLES LIKE 'dsr'";
+$table_check_result = mysqli_query($connect, $table_check_sql);
+
+if (mysqli_num_rows($table_check_result) == 0) {
+    // Table 'dsr' does not exist, create it
+    $create_table_sql = "CREATE TABLE dsr (
+        serial INT AUTO_INCREMENT PRIMARY KEY,
+        Name VARCHAR(255),
+        Monthly_target INT,
+        Father_name VARCHAR(255),
+        Mother_name VARCHAR(255),
+        Spouse_name VARCHAR(255),
+        Present_address VARCHAR(255),
+        Permanent_address VARCHAR(255),
+        NID_number BIGINT,
+        Phone_number INT,
+        Local_guarantor_name VARCHAR(255),
+        Local_guarantor_number INT
+    )";
+
+    if (mysqli_query($connect, $create_table_sql)) {
+        echo "Table 'dsr' created successfully";
+    } else {
+        echo "Error creating table: " . mysqli_error($connect);
+    }
+}
 $sql = "SELECT * FROM dsr";
 $result = mysqli_query($connect, $sql);
 ?>
